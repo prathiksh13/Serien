@@ -1,0 +1,848 @@
+.ths-journal-page {
+  display: grid;
+  gap: 16px;
+}
+
+.ths-journal-page--patient {
+  background: #f5efeb;
+  border: 1px solid #e8ddd5;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.ths-journal-toolbar {
+  align-items: center;
+}
+
+.ths-journal-composer {
+  border-color: #d8cfc8;
+}
+
+.ths-journal-focus-input {
+  min-height: 220px;
+  font-size: 1.04rem;
+  line-height: 1.72;
+  background: #fffdfb;
+}
+
+.ths-journal-mood-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ths-journal-mood-chip-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ths-journal-mood-chip {
+  border: 1px solid #d6dbe4;
+  background: #f8fafc;
+  color: #2f4156;
+  border-radius: 12px;
+  padding: 8px 6px;
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease;
+}
+
+.ths-journal-mood-chip:hover {
+  border-color: #90a4bf;
+}
+
+.ths-journal-mood-chip.is-selected {
+  border-color: #9ad8b5;
+  background: #e8f8ee;
+  color: #1b6b44;
+}
+
+.ths-journal-mood-chip__icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.ths-journal-mood-chip__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.ths-journal-tag-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ths-journal-tag-chip {
+  border: 1px solid #d7e6df;
+  border-radius: 999px;
+  background: #f2faf6;
+  color: #2f5a4b;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ths-journal-entry-card {
+  border-color: #e3d9d0;
+}
+
+.ths-journal-mood-pill {
+  background: #e8f3ed;
+  color: #1b6b44;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ths-journal-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.ths-journal-tag-pill {
+  border-radius: 999px;
+  border: 1px solid #dce7df;
+  background: #f8fcf9;
+  color: #40576b;
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+.ths-journal-entry-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.ths-journal-media-preview-grid,
+.ths-journal-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.ths-journal-media-preview-item,
+.ths-journal-media-item {
+  border: 1px solid #d7e3ee;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f8fafc;
+  min-height: 72px;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+}
+
+.ths-journal-media-preview-item.is-upload-pending {
+  border-style: dashed;
+}
+
+.ths-journal-media-preview-item img,
+.ths-journal-media-item img,
+.ths-journal-media-preview-item video,
+.ths-journal-media-item video {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.ths-journal-media-preview-item audio,
+.ths-journal-media-item audio {
+  width: 100%;
+}
+
+.ths-journal-link-btn {
+  border: 0;
+  background: transparent;
+  color: #2f4156;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ths-journal-link-btn.is-danger {
+  color: #b91c1c;
+}
+
+.ths-journal-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ths-journal-keyword-mark {
+  background: #fff3e0;
+  color: #8c2f2f;
+  border-radius: 4px;
+  padding: 0 2px;
+}
+
+.ths-journal-insights-list {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  color: #334155;
+}
+
+.ths-journal-insights-list .is-alert {
+  color: #9f1239;
+  font-weight: 600;
+}
+
+.ths-journal-feed-card {
+  display: grid;
+  gap: 10px;
+}
+
+.ths-journal-feed-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.ths-journal-feed-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ths-journal-feed-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #e7f1f8;
+  color: #2f4156;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.ths-journal-feed-name {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.ths-journal-feed-date {
+  margin: 0;
+  font-size: 11px;
+  color: #c6d1dd;
+}
+
+.ths-journal-feed-mood {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9ad8b5;
+  font-weight: 700;
+}
+
+.ths-journal-feed-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ths-journal-feed-media-item {
+  border: 1px solid rgba(203, 213, 225, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  min-height: 110px;
+  display: grid;
+  place-items: center;
+}
+
+.ths-journal-feed-media-item img,
+.ths-journal-feed-media-item video {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.ths-journal-feed-media-item audio {
+  width: calc(100% - 12px);
+}
+
+.ths-journal-feed-caption {
+  line-height: 1.65;
+}
+
+.ths-journal-feed-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ths-reports-page {
+  display: grid;
+  gap: 16px;
+}
+
+.ths-report-card-list {
+  display: grid;
+  gap: 12px;
+}
+
+.ths-report-card {
+  display: grid;
+  gap: 10px;
+}
+
+.ths-report-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ths-report-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ths-report-summary {
+  margin: 0;
+  color: #475569;
+}
+
+.ths-report-details-panel {
+  border-top: 1px solid #e2e8f0;
+  margin-top: 4px;
+  padding-top: 12px;
+  display: grid;
+  gap: 12px;
+}
+
+.ths-report-top-emotions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ths-report-emotion-chip {
+  border: 1px solid #d7e3ee;
+  border-radius: 12px;
+  background: #f8fbff;
+  padding: 8px 10px;
+  min-width: 120px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #334155;
+}
+
+.ths-report-graph-shell {
+  height: 260px;
+  border: 1px solid #dce7f1;
+  border-radius: 12px;
+  background: #fff;
+  padding: 10px;
+}
+
+.ths-report-insight-text {
+  margin: 0;
+  color: #2f4156;
+  line-height: 1.6;
+}
+
+.ths-therapist-report-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.ths-therapist-report-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 840px;
+}
+
+.ths-therapist-report-table th,
+.ths-therapist-report-table td {
+  border-bottom: 1px solid #edf2f7;
+  padding: 12px;
+  text-align: left;
+  font-size: 13px;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.ths-therapist-report-table th {
+  background: #f8fbfd;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+}
+
+.ths-emotion-badge {
+  border-radius: 999px;
+  padding: 4px 10px;
+  background: #ecfdf5;
+  color: #166534;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.ths-emotion-badge.is-negative {
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.ths-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.52);
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  z-index: 120;
+}
+
+.ths-modal-card {
+  width: min(1040px, 100%);
+  max-height: min(92vh, 900px);
+  overflow: auto;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #d7e0ea;
+  padding: 16px;
+  display: grid;
+  gap: 14px;
+  animation: ths-modal-fade 220ms ease;
+}
+
+@keyframes ths-modal-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ths-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.ths-modal-section-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ths-modal-section {
+  border: 1px solid #e5edf4;
+  border-radius: 12px;
+  background: #fbfdff;
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.ths-modal-section h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #0f172a;
+}
+
+.ths-modal-section p {
+  margin: 0;
+  color: #475569;
+  font-size: 14px;
+}
+
+.ths-modal-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ths-chip-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.ths-emotion-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ths-filter-chip {
+  border: 1px solid #d7e3ee;
+  border-radius: 999px;
+  background: #fff;
+  color: #1e293b;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.ths-filter-chip.is-selected {
+  border-color: #2fbf71;
+  background: #ecfdf5;
+  color: #166534;
+}
+
+.ths-filter-chip.is-negative {
+  background: #fff8f8;
+}
+
+.ths-filter-chip.is-negative.is-selected {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.ths-report-graph-shell--modal {
+  height: 310px;
+}
+
+.ths-graph-empty {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.ths-analysis-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  color: #334155;
+}
+
+.ths-analysis-list .is-risk {
+  color: #9f1239;
+  font-weight: 700;
+}
+
+.ths-modal-footer {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.ths-therapist-journal-shell {
+  max-width: 920px;
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+  background: #eef3f6;
+  border: 1px solid #dde5eb;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.ths-therapist-journal-head h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #1f2a37;
+  line-height: 1.2;
+}
+
+.ths-therapist-journal-head p {
+  margin: 4px 0 0;
+  color: #5f6f7d;
+  font-size: 13px;
+}
+
+.ths-therapist-filter-bar {
+  border: 1px solid #d7e1e8;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.ths-therapist-filter-bar label {
+  display: grid;
+  gap: 5px;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.ths-therapist-filter-bar select,
+.ths-therapist-filter-bar input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #d7e1e8;
+  background: #f9fbfc;
+  color: #1e293b;
+  padding: 8px 10px;
+  font-size: 13px;
+}
+
+.ths-therapist-status-text {
+  margin: 0;
+  font-size: 12px;
+  color: #667788;
+}
+
+.ths-therapist-feed-list {
+  display: grid;
+  gap: 12px;
+}
+
+.ths-therapist-feed-card {
+  background: #ffffff;
+  border: 1px solid #d8e2ea;
+  border-radius: 14px;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.ths-therapist-feed-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ths-therapist-feed-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ths-therapist-feed-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: #e8f4ef;
+  color: #2f5f4e;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.ths-therapist-feed-name {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f2a37;
+}
+
+.ths-therapist-feed-date {
+  margin: 0;
+  font-size: 11px;
+  color: #7b8a98;
+}
+
+.ths-therapist-feed-mood {
+  border-radius: 999px;
+  background: #eaf8f1;
+  color: #197149;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  padding: 4px 9px;
+}
+
+.ths-therapist-feed-content {
+  margin: 0;
+  color: #324152;
+  font-size: 13px;
+  line-height: 1.58;
+  white-space: pre-line;
+}
+
+.ths-therapist-feed-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ths-therapist-feed-media-item {
+  border: 1px solid #d8e2ea;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f9fbfc;
+  min-height: 120px;
+  display: grid;
+  place-items: center;
+}
+
+.ths-therapist-feed-media-item img,
+.ths-therapist-feed-media-item video {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.ths-therapist-feed-media-item audio {
+  width: calc(100% - 12px);
+}
+
+.ths-therapist-feed-media-item p {
+  margin: 0;
+  padding: 10px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.ths-therapist-feed-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ths-therapist-feedback-box {
+  border: 1px solid #dce6ed;
+  border-radius: 10px;
+  background: #f8fbfd;
+  padding: 10px;
+  display: grid;
+  gap: 6px;
+}
+
+.ths-therapist-feedback-box label {
+  font-size: 11px;
+  color: #6b7a88;
+  font-weight: 700;
+}
+
+.ths-therapist-feedback-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.ths-therapist-feedback-row textarea {
+  min-height: 64px;
+  border: 1px solid #d4dee6;
+  border-radius: 9px;
+  background: #ffffff;
+  resize: vertical;
+  padding: 8px 10px;
+  font-size: 13px;
+  color: #1f2a37;
+}
+
+.ths-therapist-send-btn {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 9px;
+  background: #2fbf71;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  align-self: end;
+  cursor: pointer;
+}
+
+.ths-therapist-send-btn:hover {
+  background: #26a864;
+}
+
+.ths-therapist-feed-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ths-therapist-empty-card {
+  margin: 0;
+  border-radius: 12px;
+  border: 1px dashed #cbd8e3;
+  background: #ffffff;
+  color: #5f6f7d;
+  padding: 18px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.ths-therapist-pending-chip {
+  justify-self: end;
+  border-radius: 999px;
+  border: 1px solid #cae3d6;
+  background: #ecf8f1;
+  color: #2f5f4e;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 10px;
+}
+
+.ts-btn--primary {
+  background: #2fbf71;
+  color: #fff;
+  border-color: #2fbf71;
+}
+
+.ts-btn--primary:hover {
+  background: #24a35f;
+  border-color: #24a35f;
+}
+
+@media (max-width: 900px) {
+  .ths-journal-mood-chip-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ths-journal-media-preview-grid,
+  .ths-journal-media-grid,
+  .ths-journal-feed-media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ths-journal-filter-grid,
+  .ths-modal-section-grid,
+  .ths-therapist-filter-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .ths-therapist-feed-media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ths-therapist-feedback-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ths-therapist-send-btn {
+    width: 100%;
+    height: 36px;
+  }
+
+  .ths-report-graph-shell,
+  .ths-report-graph-shell--modal {
+    height: 240px;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "tr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "face-api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "react": "npm --prefix frontend-react run dev",
+    "server": "node server.js",
+    "ngrok": "ngrok http 3000",
+    "dev": "concurrently \"npm run server\" \"npm run react\" \"npm run ngrok\"",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "concurrently": "^9.2.1",
+    "dotenv": "^16.6.1",
+    "express": "^5.2.1",
+    "firebase-admin": "^13.7.0",
+    "node-cron": "^4.2.1",
+    "nodemailer": "^8.0.4",
+    "socket.io": "^4.8.3"
+  }
+}

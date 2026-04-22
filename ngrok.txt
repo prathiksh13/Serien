@@ -1,0 +1,2 @@
+ngrok is running and tunnel URL is visible in http://127.0.0.1:4040/api/tunnels
+https://shimmy-garter-atypical.ngrok-free.dev/

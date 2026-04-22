@@ -1,0 +1,119 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function userRole() {
+      return isSignedIn()
+        ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role
+        : null;
+    }
+
+    function isPatient() {
+      return userRole() == 'patient';
+    }
+
+    function isTherapist() {
+      return userRole() == 'therapist';
+    }
+
+    function hasTherapistPatientAssignment(therapistId, patientId) {
+      return exists(/databases/$(database)/documents/therapistPatients/$(therapistId + '_' + patientId));
+    }
+
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && request.auth.uid == userId;
+      allow update: if isSignedIn() && request.auth.uid == userId;
+      allow delete: if false;
+    }
+
+    match /therapistPatients/{assignmentId} {
+      allow read: if isSignedIn() && (
+        resource.data.patientId == request.auth.uid ||
+        resource.data.therapistId == request.auth.uid
+      );
+
+      // Created by a patient when booking with a therapist.
+      allow create: if isSignedIn() &&
+        isPatient() &&
+        request.resource.data.patientId == request.auth.uid &&
+        request.resource.data.therapistId is string &&
+        get(/databases/$(database)/documents/users/$(request.resource.data.therapistId)).data.role == 'therapist';
+
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    match /journals/{journalId} {
+      // Patient can create only their own journal entry.
+      allow create: if isSignedIn() &&
+        isPatient() &&
+        request.resource.data.userId == request.auth.uid &&
+        request.resource.data.role == 'patient' &&
+        request.resource.data.content is string &&
+        (
+          !('mood' in request.resource.data) ||
+          request.resource.data.mood is int ||
+          request.resource.data.mood is string ||
+          request.resource.data.mood == null
+        );
+
+      // Patient reads own journals. Therapist reads only assigned patient's journals.
+      allow read: if isSignedIn() && (
+        resource.data.userId == request.auth.uid ||
+        (isTherapist() && resource.data.role == 'patient' && hasTherapistPatientAssignment(request.auth.uid, resource.data.userId))
+      );
+
+      allow update: if isSignedIn() &&
+        isPatient() &&
+        resource.data.userId == request.auth.uid &&
+        request.resource.data.userId == request.auth.uid &&
+        request.resource.data.role == 'patient' &&
+        request.resource.data.content is string &&
+        (
+          !('mood' in request.resource.data) ||
+          request.resource.data.mood is int ||
+          request.resource.data.mood is string ||
+          request.resource.data.mood == null
+        );
+      allow delete: if isSignedIn() && isPatient() && resource.data.userId == request.auth.uid;
+    }
+
+    match /sessions/{sessionId} {
+      allow create: if isSignedIn() &&
+        isPatient() &&
+        request.resource.data.patientId == request.auth.uid &&
+        request.resource.data.therapistId is string;
+
+      allow read: if isSignedIn() && (
+        resource.data.patientId == request.auth.uid ||
+        resource.data.therapistId == request.auth.uid
+      );
+
+      allow update, delete: if isSignedIn() && (
+        resource.data.patientId == request.auth.uid ||
+        resource.data.therapistId == request.auth.uid
+      );
+    }
+
+    match /reports/{reportId} {
+      allow read: if isSignedIn() && (
+        resource.data.patientId == request.auth.uid ||
+        resource.data.therapistId == request.auth.uid
+      );
+      allow create: if isSignedIn() &&
+        isTherapist() &&
+        request.resource.data.therapistId == request.auth.uid;
+      allow update, delete: if isSignedIn() &&
+        isTherapist() &&
+        resource.data.therapistId == request.auth.uid;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

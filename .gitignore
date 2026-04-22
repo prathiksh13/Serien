@@ -1,0 +1,89 @@
+# --------------------------------------------------
+# Dependencies
+# --------------------------------------------------
+node_modules/
+frontend-react/node_modules/
+
+# --------------------------------------------------
+# Build outputs (React/Vite, Node, Python)
+# --------------------------------------------------
+dist/
+build/
+out/
+coverage/
+*.tsbuildinfo
+frontend-react/dist/
+frontend-react/build/
+
+# --------------------------------------------------
+# Environment and secrets
+# --------------------------------------------------
+.env
+.env.*
+!.env.example
+!frontend-react/.env.example
+
+# --------------------------------------------------
+# Logs and debug artifacts
+# --------------------------------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+firebase-debug.log
+
+# --------------------------------------------------
+# Python cache and virtual environments
+# --------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+ENV/
+
+# --------------------------------------------------
+# OS and editor files
+# --------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.Spotlight-V100/
+.Trashes/
+._*
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --------------------------------------------------
+# Large ML model weights (keep manifests/configs in git)
+# --------------------------------------------------
+models/*-shard*
+weights/*-shard*
+*.ckpt
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.onnx
+*.tflite
+*.pb
+
+# --------------------------------------------------
+# Project-specific generated libraries
+# --------------------------------------------------
+face-api.js/
+
+.env
+.env.*
+firebase-adminsdk*.json
