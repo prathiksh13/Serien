@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { io } from 'socket.io-client'
+import { socket } from '../lib/socket'
 import { useLocation, useNavigate } from 'react-router-dom'
 import CallTopbar from '../components/CallTopbar'
 import Sidebar from '../layout/Sidebar'
