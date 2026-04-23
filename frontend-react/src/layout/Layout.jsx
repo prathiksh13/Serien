@@ -98,16 +98,19 @@ export default function Layout() {
     }
 
     transitionLoadingRef.current = true
-    setTabLoading(true)
-    setIsLeaving(true)
+    setIsLeaving(true)  // Step 1: trigger card fade-out + blur
 
+    // Step 2: after cards have animated out, show loading + navigate
     transitionTimeoutRef.current = window.setTimeout(() => {
-      navigate(to, {
-        ...options,
-        state: {
-          ...(options.state || {}),
-        },
-      })
+      setTabLoading(true)  // Step 2: show loading overlay
+      window.setTimeout(() => {
+        navigate(to, {
+          ...options,
+          state: {
+            ...(options.state || {}),
+          },
+        })
+      }, 80)  // small gap for loading screen to mount before navigation
     }, NAV_EXIT_DURATION_MS)
   }, [location.hash, location.pathname, location.search, navigate])
 

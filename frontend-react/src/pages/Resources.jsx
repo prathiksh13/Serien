@@ -23,6 +23,46 @@ const RESOURCE_LIST = [
     difficulty: 'Beginner',
     duration: '6 min',
   },
+  {
+    id: 'progressive-muscle',
+    title: 'Progressive Muscle Relaxation',
+    description: 'Systematically tense and release muscle groups to ease physical tension and stress.',
+    category: 'Relaxation',
+    difficulty: 'Beginner',
+    duration: '10 min',
+  },
+  {
+    id: 'body-scan',
+    title: 'Body Scan Meditation',
+    description: 'A guided awareness practice to reconnect with your body and reduce chronic tension.',
+    category: 'Mindfulness',
+    difficulty: 'Intermediate',
+    duration: '12 min',
+  },
+  {
+    id: 'cognitive-restructuring',
+    title: 'Cognitive Restructuring',
+    description: 'Learn to identify and reframe distorted thought patterns that contribute to anxiety or depression.',
+    category: 'CBT',
+    difficulty: 'Intermediate',
+    duration: '15 min',
+  },
+  {
+    id: 'journaling-clarity',
+    title: 'Journaling for Emotional Clarity',
+    description: 'Structured prompts to help process emotions, identify triggers, and build self-awareness.',
+    category: 'Journaling',
+    difficulty: 'Beginner',
+    duration: '8 min',
+  },
+  {
+    id: 'sleep-hygiene',
+    title: 'Sleep Hygiene Guide',
+    description: 'Evidence-based habits to improve sleep quality and reduce nighttime anxiety.',
+    category: 'Wellness',
+    difficulty: 'Beginner',
+    duration: '7 min',
+  },
 ]
 
 const FAQ_LIST = [
@@ -30,6 +70,22 @@ const FAQ_LIST = [
     id: 'faq-1',
     title: 'How often should I journal?',
     description: 'Try short entries 3-4 times per week to track mood trends.',
+    category: 'FAQ',
+    difficulty: 'General',
+    duration: '2 min',
+  },
+  {
+    id: 'faq-2',
+    title: 'Can I message my therapist between sessions?',
+    description: 'Yes — use the in-app messenger for non-urgent questions. Emergency contacts are listed above.',
+    category: 'FAQ',
+    difficulty: 'General',
+    duration: '2 min',
+  },
+  {
+    id: 'faq-3',
+    title: 'What if I need to reschedule a session?',
+    description: 'You can reschedule up to 24 hours before your session from the Appointments page.',
     category: 'FAQ',
     difficulty: 'General',
     duration: '2 min',
@@ -99,6 +155,11 @@ export default function Resources() {
           <option value="all">All Categories</option>
           <option value="breathing">Breathing</option>
           <option value="grounding">Grounding</option>
+          <option value="relaxation">Relaxation</option>
+          <option value="mindfulness">Mindfulness</option>
+          <option value="cbt">CBT</option>
+          <option value="journaling">Journaling</option>
+          <option value="wellness">Wellness</option>
           <option value="faq">FAQ</option>
         </select>
       </div>
