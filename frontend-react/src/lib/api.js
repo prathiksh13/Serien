@@ -1,12 +1,16 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') || ''
+const FLASK_API = import.meta.env.VITE_FLASK_API_URL?.replace(/\/$/, '')
+const NODE_API = import.meta.env.VITE_NODE_API_URL?.replace(/\/$/, '')
 
-export function apiUrl(path) {
-  if (!path) return API_BASE_URL
+// Flask APIs (ML / Python)
+export function flaskApi(path) {
+  if (!path) return FLASK_API
   if (/^https?:\/\//i.test(path)) return path
-  if (!API_BASE_URL) return path
-  return `${API_BASE_URL}${path.startsWith('/') ? path : `/${path}`}`
+  return `${FLASK_API}${path.startsWith('/') ? path : `/${path}`}`
 }
 
-export function socketUrl() {
-  return API_BASE_URL || undefined
+// Node APIs (Socket + main backend)
+export function nodeApi(path) {
+  if (!path) return NODE_API
+  if (/^https?:\/\//i.test(path)) return path
+  return `${NODE_API}${path.startsWith('/') ? path : `/${path}`}`
 }
