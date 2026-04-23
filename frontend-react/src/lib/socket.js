@@ -1,3 +1,8 @@
-import { io } from 'socket.io-client'
+// socket.js
 
-export const socket = io()
+import { io } from "socket.io-client";
+import { socketUrl } from "./api";
+
+export const socket = io(socketUrl(), {
+  transports: ["websocket"],
+});
