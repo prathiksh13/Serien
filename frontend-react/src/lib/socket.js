@@ -1,6 +1,7 @@
 import { io } from "socket.io-client"
+import { nodeApi } from "./api"
 
-export const socket = io("https://serien-model.onrender.com", {
+export const socket = io(nodeApi(), {
   transports: ["websocket"],
   withCredentials: true,
 })
